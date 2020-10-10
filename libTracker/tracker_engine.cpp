@@ -108,7 +108,7 @@ HIAI_IMPL_ENGINE_PROCESS("TrackerEngine", TrackerEngine, TRACKER_INPUT_SIZE)
                 }
                 invalue = ((aleft > bleft ? aleft : bleft) - (aright < bright ? aright : bright)) * ((atop > btop ? atop : btop) - (abottom < bbottom ? abottom : bbottom));
                 onvalue = (aright - aleft) * (abottom - atop) + (bright - bleft) * (bbottom - btop) - invalue;
-                if (((invalue * 1.0) / onvalue) > 0.5)
+                if (((invalue * 1.0) / onvalue) > 0.2)
                 {
                     if (obj_detection_result.m_DetectObj[i].fConfidence > obj_detection_result.m_DetectObj[j].fConfidence)
                     {
@@ -152,7 +152,7 @@ HIAI_IMPL_ENGINE_PROCESS("TrackerEngine", TrackerEngine, TRACKER_INPUT_SIZE)
         one_inputArg->detectResult.clear();
         for (int k = 0; k < pTask[n]->m_iResultNum; k++)
         {
-            if (pTask[n]->m_TrackResult[n].status & DETECT_OBJ_STATUS_NORMAL)
+            if (pTask[n]->m_TrackResult[k].status & DETECT_OBJ_STATUS_NORMAL)
             {
             }
             else {
